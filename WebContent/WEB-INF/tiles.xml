@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC  "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN" "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+
+	<!-- Reusable Templates -->
+
+	<definition name="App.Landing" template="/pages/templates/AppLanding.jsp">
+		<put-attribute name="pageTitleText" value="Welcome"
+			type="string" />
+		<put-attribute name="pageHeader" value="/pages/tiles/global/Header.jsp" />
+		<put-attribute name="headerSession" value="/pages/tiles/global/Session.jsp" />
+		<put-attribute name="actionMsg" value="/pages/tiles/global/ActionMsg.jsp" />
+		<put-attribute name="body" value="/pages/app/AppLanding.jsp" />
+	</definition>
+
+	<definition name="App.Login" extends="App.Landing">
+		<put-attribute name="pageTitleText" value="Login" type="string" />
+		<put-attribute name="body" value="/pages/app/common/Login.jsp" />
+	</definition>
+
+	<definition name="tiles.AppHome" template="/pages/templates/Standard.jsp">
+		<put-attribute name="pageTitleText" value="iStock 2.1"
+			type="string" />
+		<put-attribute name="pageHeader" value="/pages/tiles/global/Header.jsp" />
+		<put-attribute name="headerSession" value="/pages/tiles/global/Session.jsp" />
+		<put-attribute name="actionMsg" value="/pages/tiles/global/ActionMsg.jsp" />
+		<put-attribute name="menu" value="/pages/tiles/global/Menu.jsp" />
+		<put-attribute name="body" value="" />
+	</definition>
+
+	<definition name="User.Home" extends="tiles.AppHome">
+		<put-attribute name="pageTitleText" value="User Home"
+			type="string" />
+		<put-attribute name="body" value="/pages/app/user/Home.jsp" />
+	</definition>
+
+	<definition name="User.NewTicket" extends="tiles.AppHome">
+		<put-attribute name="pageTitleText" value="New Ticket"
+			type="string" />
+		<put-attribute name="body" value="/pages/app/ticket/NewTicket.jsp" />
+	</definition>
+
+
+	<definition name="Admin.ExcelUpload" extends="tiles.AppHome">
+		<put-attribute name="pageTitleText" value="Excel Upload"
+			type="string" />
+		<put-attribute name="body" value="/pages/app/admin/UploadExcel.jsp" />
+	</definition>
+
+	<definition name="Admin.ExcelUploadSuccess" extends="tiles.AppHome">
+		<put-attribute name="pageTitleText" value="Excel Upload Success"
+			type="string" />
+		<put-attribute name="body" value="/pages/app/admin/UploadSuccess.jsp" />
+	</definition>
+
+
+	<definition name="Admin.UserList" extends="tiles.AppHome">
+		<put-attribute name="pageTitleText" value="User Management"
+			type="string" />
+		<put-attribute name="body" value="/pages/app/admin/UserList.jsp" />
+	</definition>
+
+	<definition name="Admin.StaticMaintance" extends="tiles.AppHome">
+		<put-attribute name="pageTitleText" value="Static Maintanace"
+			type="string" />
+		<put-attribute name="body"
+			value="/pages/app/admin/staticMaintance/StaticMaintance.jsp" />
+	</definition>
+
+	<definition name="App.viewReport" extends="tiles.AppHome">
+		<put-attribute name="pageTitleText" value="View Report"
+			type="string" />
+		<put-attribute name="body" value="/pages/app/common/Report.jsp" />
+	</definition>
+
+	<definition name="App.addCriticality" extends="tiles.AppHome">
+		<put-attribute name="pageTitleText" value="Add New Criticality"
+			type="string" />
+		<put-attribute name="body"
+			value="/pages/app/admin/staticMaintance/AddCriticality.jsp" />
+	</definition>
+
+	<definition name="App.addStatus" extends="tiles.AppHome">
+		<put-attribute name="pageTitleText" value="Add New Criticality"
+			type="string" />
+		<put-attribute name="body"
+			value="/pages/app/admin/staticMaintance/AddStatus.jsp" />
+	</definition>
+
+	<definition name="App.todayScrumUpdate" extends="tiles.AppHome">
+		<put-attribute name="pageTitleText" value="Today Scrum Update"
+			type="string" />
+		<put-attribute name="body" value="/pages/app/scrum/SrcumUpdate.jsp" />
+	</definition>
+
+	<definition name="App.totalScrumUpdate" extends="tiles.AppHome">
+		<put-attribute name="pageTitleText" value="Today Scrum Update"
+			type="string" />
+		<put-attribute name="body"
+			value="/pages/app/scrum/MyTotalSrcumUpdate.jsp" />
+	</definition>
+
+	<definition name="App.finalScrumReport" extends="tiles.AppHome">
+		<put-attribute name="pageTitleText" value="Today Scrum Update"
+			type="string" />
+		<put-attribute name="body"
+			value="/pages/app/scrum/FinalScrumReport.jsp" />
+	</definition>
+
+	<definition name="App.userList" extends="tiles.AppHome">
+		<put-attribute name="pageTitleText" value="Today Scrum Update"
+			type="string" />
+		<put-attribute name="body"
+			value="/pages/app/manager/userManagemet/UserList.jsp" />
+	</definition>
+
+
+
+	<definition name="App.userAdd" extends="tiles.AppHome">
+		<put-attribute name="pageTitleText" value="Today Scrum Update"
+			type="string" />
+		<put-attribute name="body"
+			value="/pages/app/manager/userManagemet/AddUser.jsp" />
+	</definition>
+	
+	<definition name="App.userEdit" extends="tiles.AppHome">
+		<put-attribute name="pageTitleText" value="Today Scrum Update"
+			type="string" />
+		<put-attribute name="body"
+			value="/pages/app/manager/userManagemet/EditUser.jsp" />
+	</definition>
+
+
+
+</tiles-definitions>

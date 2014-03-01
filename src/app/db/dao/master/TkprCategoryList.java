@@ -1,0 +1,34 @@
+package app.db.dao.master;
+
+import java.sql.Types;
+import java.util.Map;
+
+import javax.sql.DataSource;
+
+import org.springframework.jdbc.core.SqlOutParameter;
+import org.springframework.jdbc.core.SqlReturnResultSet;
+import org.springframework.jdbc.object.StoredProcedure;
+
+import app.db.rowmapper.master.TktbCategoryRM;
+
+public class TkprCategoryList extends StoredProcedure {
+
+	public TkprCategoryList(DataSource dataSource) {
+
+		super(dataSource, "");
+		this.setFunction(false);
+		this.setSql("TKPR_CATEGORY_LIST");
+
+		this.declareParameter(new SqlOutParameter("pOUT_ACTION_MSG", Types.VARCHAR));
+		this.declareParameter(new SqlOutParameter("pOUT_ERROR_MSG", Types.VARCHAR));
+		this.declareParameter(new SqlReturnResultSet("pRESULTSET_ROWS", new TktbCategoryRM()));
+
+		// this.setUpdatableResults(true);
+		this.compile();
+	}
+
+	public Map<String, Object> getCategoryList() {
+		return this.execute();
+	}
+
+}
