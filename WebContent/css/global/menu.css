@@ -1,6 +1,7 @@
 .demos-nav,.demos-nav dt,.demos-nav dd,.demos-nav ul,.demos-nav li {
 	margin: 0;
-	padding: 0
+	padding: 0;
+	font-family: arial;
 }
 
 .demos-nav {
@@ -16,7 +17,7 @@
 .demos-nav dt,.demos-nav h4 {
 	margin: 0;
 	padding: 0;
-	font: normal 1.1em "Trebuchet MS";
+	font: normal 1.1em arial;
 	color: #e87b10;
 }
 

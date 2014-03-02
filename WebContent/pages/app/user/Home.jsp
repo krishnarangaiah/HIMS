@@ -5,7 +5,7 @@
 		<div class="ui-widget-header ui-corner-top formHeading">
 			<img style='vertical-align: bottom;'
 				src='<%=request.getContextPath()%>/images/SEO-icon.png'
-				title="Customer Reports" /> Admin Notifications
+				title="Customer Reports" /> Appointments
 		</div>
 
 		<div style="margin: 1em; width: 100%;">

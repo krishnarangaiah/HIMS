@@ -7,6 +7,6 @@
 </div>
 -->
 
-<div style="font-family: Trebuchet MS; font-size: 1.3em;">
-	<a href="Home">Time Sheet</a> <span class="note">0.0.1</span>
+<div style="font-family: arial; font-size: 1.3em;">
+	<a href="Home">HIMS</a> <span class="note">0.0.1</span>
 </div>

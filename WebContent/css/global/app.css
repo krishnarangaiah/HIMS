@@ -6,10 +6,11 @@
 	padding-left: 2em;
 	vertical-align: middle;
 	font-weight: bold;
+	font-family: arial;
 }
 
 .sessionTD {
-	font-family: Trebuchet MS;
+	font-family: arial;
 	font-size: 0.85em;
 	color: white;
 	text-align: right;
@@ -58,7 +59,7 @@
 	vertical-align: bottom;
 	color: green;
 	height: 1.5em;
-	font-family: Trebuchet MS;
+	font-family: arial;
 	padding: 0.5em;
 }
 
@@ -120,7 +121,7 @@
 	height: 2em;
 	padding-left: 0.5em;
 	text-align: center;
-	font-family: verdana;
+	font-family: arial;
 	font-size: 0.8em;
 	color: gray;
 }
@@ -151,6 +152,6 @@
 	text-align: left;
 	font-size: 1em;
 	color: green;
-	font-family: Trebuchet MS;
+	font-family: arial;
 	padding-left: 2em;
 }
