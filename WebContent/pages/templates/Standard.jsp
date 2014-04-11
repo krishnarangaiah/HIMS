@@ -4,10 +4,11 @@
 <html>
 <head>
 
-<title><s:property value='session.get("AppCache").getAppName()' /> Bug Tracker - <tiles:insertAttribute name="pageTitleText" /></title>
+<title><s:property value='session.get("AppCache").getAppName()' />
+	HIMS - <tiles:insertAttribute name="pageTitleText" /></title>
 
 <script>
-
+	
 </script>
 
 <style type="text/css">
@@ -19,7 +20,7 @@
 </head>
 <body>
 
-	<table style="height: 100%; width: 100%;" class="">
+	<table style="height: 100%; width: 100%;">
 		<tr style="height: 5%;" class="ui-widget-header">
 			<td><table style="height: 100%; width: 100%;">
 					<tr>
@@ -41,7 +42,8 @@
 				<table style="width: 100%; height: 100%;">
 					<tr>
 						<td class="menu"><tiles:insertAttribute name="menu" /></td>
-						<td class="appBody" align="center"><tiles:insertAttribute name="body" /></td>
+						<td class="appBody" align="center"><tiles:insertAttribute
+								name="body" /></td>
 					</tr>
 				</table>
 			</td>

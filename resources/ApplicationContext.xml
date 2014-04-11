@@ -189,11 +189,7 @@
 	<bean id="sutbSubCategory" class="app.db.model.scrum.SutbSubCategory"></bean>
 	<bean id="sutbScrumUpdate" class="app.db.model.scrum.SutbScrumUpdate"></bean>
 	
-	<bean id="a" class="delete.A">
-		<property name="studentName" value="Krishna" ></property>
-	</bean>
-
-
+	
 	<!-- End of Beans -->
 
 </beans>
