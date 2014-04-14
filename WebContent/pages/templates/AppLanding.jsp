@@ -4,7 +4,7 @@
 <html>
 <head>
 
-<title><s:property value='session.get("AppCache").getAppName()' /> Bug Tracker - <tiles:insertAttribute name="pageTitleText" /></title>
+<title><s:property value='session.get("AppCache").getAppName()' /> HIMS - <tiles:insertAttribute name="pageTitleText" /></title>
 
 <script>
 	$(function() {

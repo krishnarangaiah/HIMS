@@ -5,26 +5,24 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import app.core.components.AppCache;
-
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 import framework.core.setup.app.action.vocabilary.ActionVocabilary;
 
-public class ActionExtension extends ActionSupport implements ActionVocabilary, SessionAware {
+public class ActionExtension extends ActionSupport implements ActionVocabilary,
+		SessionAware {
 
 	private static final long serialVersionUID = 1L;
 
 	/* Session variables */
-	private Map<String, Object> session = ActionContext.getContext().getSession();
-	
+	private Map<String, Object> session = ActionContext.getContext()
+			.getSession();
+
 	/* Action variables */
 	private String actionMessage, errorMessage;
 	private Map<String, Object> resultMap = new HashMap<String, Object>();
-	
-	public static final AppCache appCache = new AppCache(); 
-		
+
 	public String getActionMessage() {
 		return actionMessage;
 	}

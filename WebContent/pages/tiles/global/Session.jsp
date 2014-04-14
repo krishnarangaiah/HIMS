@@ -13,8 +13,8 @@
 			
 			Welcome <strong><s:property
 					value='session.get("SESSION_USER").getFullName()' /></strong>
-<%-- 			<b>|</b><s:property --%>
-<%-- 					value='session.get("SESSION_USER").getAptbUserId()' /></strong> --%>
+			<%-- 			<b>|</b><s:property --%>
+			<%-- 					value='session.get("SESSION_USER").getAptbUserId()' /></strong> --%>
 			<b>|</b>
 			Role <strong><s:property
 					value='session.get("SESSION_USER").getAptbRole().getDiplayName()' /></strong>
