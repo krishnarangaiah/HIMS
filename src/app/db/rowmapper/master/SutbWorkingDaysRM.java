@@ -9,7 +9,6 @@ import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 
 import app.db.model.master.SutbWorkingDays;
-import app.db.model.master.TktbCategory;
 import framework.core.setup.app.dataaccess.vocabilary.DataAccessVocabilary;
 
 public class SutbWorkingDaysRM implements RowMapper<Object> {

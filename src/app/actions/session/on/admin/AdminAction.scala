@@ -1,13 +1,13 @@
 package app.actions.session.on.admin
 
-import framework.core.setup.app.action.extentions.ActionExtension
-import framework.core.setup.app.dataaccess.vocabilary.DataAccessVocabilary
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.BeanFactory
 import org.springframework.context.support.ClassPathXmlApplicationContext
 import com.opensymphony.xwork2.Action
 import scala.beans.BeanProperty
+import framework.core.setup.app.action.extentions.ActionExtension
+import framework.core.setup.app.dataaccess.vocabilary.DataAccessVocabilary
 
 class AdminAction extends ActionExtension with DataAccessVocabilary {
 
