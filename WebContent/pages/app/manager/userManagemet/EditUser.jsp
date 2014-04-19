@@ -4,7 +4,7 @@
 	<div class="ui-widget-header ui-corner-top formHeading">Edit User
 	</div>
 	<div style="margin: 1em; width: 100%;">
-		<s:form action="ProcessEditUser" method="post"
+		<s:form action="<%=request.getContextPath()%>/ProcessEditUser" method="post"
 			onsubmit="return validateSubmit()">
 
 			<input type="hidden" name="updatedBy"

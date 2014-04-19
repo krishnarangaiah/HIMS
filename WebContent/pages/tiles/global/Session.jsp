@@ -4,7 +4,7 @@
 <div class="sessionMenu">
 
 
-	<sx:div href="ServerTime" updateFreq="1000">Server Time Zone</sx:div>
+	<sx:div  href="ServerTime" updateFreq="1000">Server Time Zone</sx:div>
 
 	<span class="sessionDivider"> <span class="note"
 		style="color: #FFCC99;">Supported Browsers: Mozilla Firefox,

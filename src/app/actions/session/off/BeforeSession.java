@@ -19,8 +19,7 @@ public class BeforeSession extends ActionExtension implements DataAccessVocabila
 	private static final long serialVersionUID = 1L;
 
 	private static final Logger LOGGER = Logger.getLogger(BeforeSession.class);
-	private static BeanFactory factory = (BeanFactory) (new ClassPathXmlApplicationContext(
-			new String[] { "classpath:" + APPLICATION_CONTEX_XML }));
+	private static BeanFactory factory = (BeanFactory) (new ClassPathXmlApplicationContext(new String[] { "classpath:" + APPLICATION_CONTEX_XML }));
 
 	private Login login = (Login) factory.getBean("login");
 	private TkprProductList tkprProductList = (TkprProductList) factory.getBean("tkprProductList");
@@ -36,9 +35,9 @@ public class BeforeSession extends ActionExtension implements DataAccessVocabila
 		return super.execute();
 	}
 
-	@SuppressWarnings("unchecked")
 	public String appLanding() {
 		LOGGER.log(AppLevel.APP_INFO, "Application is initiating");
+		// System.out.println("This is from scala: " + Util.getUUID());
 		return SUCCESS;
 	}
 
@@ -58,8 +57,7 @@ public class BeforeSession extends ActionExtension implements DataAccessVocabila
 
 		try {
 			LOGGER.log(AppLevel.APP_UM_DEBUG, "Processing user login action");
-			LOGGER.log(AppLevel.APP_UM_INFO, "UserName: " + userName + " UserPassword: "
-					+ userPassword);
+			LOGGER.log(AppLevel.APP_UM_INFO, "UserName: " + userName + " UserPassword: " + userPassword);
 
 			setResultMap(login.login(userName));
 			LOGGER.log(AppLevel.APP_UM_DEBUG, "Accessed database for login");
@@ -89,9 +87,8 @@ public class BeforeSession extends ActionExtension implements DataAccessVocabila
 			}
 
 		} catch (Exception exception) {
-			LOGGER.log(AppLevel.APP_UM_ERROR, "Got exception \"" + exception.getMessage()
-					+ "\" while processing Login with UserName: " + userName + " UserPassword: "
-					+ userPassword);
+			LOGGER.log(AppLevel.APP_UM_ERROR, "Got exception \"" + exception.getMessage() + "\" while processing Login with UserName: " + userName
+					+ " UserPassword: " + userPassword);
 			exception.printStackTrace();
 			return APP_LOGIN;
 		}

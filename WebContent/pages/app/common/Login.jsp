@@ -5,8 +5,8 @@
 		if (document.getElementById("userNameId").value === '') {
 			alert("User Name is required");
 			return false;
-		} 
-		
+		}
+
 		if (document.getElementById("userPasswordId").value === '') {
 			alert("Password is required");
 			return false;
@@ -24,8 +24,8 @@
 			title="Login" /> Login
 	</div>
 	<div style="margin: 1em; width: 100%;">
-		<form action="ProcessLogin" method="POST"
-			onsubmit='return validateInput()'>
+		<s:form action="/ProcessLogin"
+			method="POST" onsubmit='return validateInput()'>
 			<table class="formTable">
 
 				<tr>
@@ -43,6 +43,6 @@
 				</tr>
 
 			</table>
-		</form>
+		</s:form>
 	</div>
 </div>

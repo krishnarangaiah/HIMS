@@ -123,7 +123,7 @@
 		<put-attribute name="body"
 			value="/pages/app/manager/userManagemet/AddUser.jsp" />
 	</definition>
-	
+
 	<definition name="App.userEdit" extends="tiles.AppHome">
 		<put-attribute name="pageTitleText" value="Today Scrum Update"
 			type="string" />
@@ -131,6 +131,13 @@
 			value="/pages/app/manager/userManagemet/EditUser.jsp" />
 	</definition>
 
-
+	<!-- App Setup Module -->
+	
+	<definition name="Setup.weekDays" extends="tiles.AppHome">
+		<put-attribute name="pageTitleText" value="Set Working weekdays"
+			type="string" />
+		<put-attribute name="body"
+			value="/pages/app/setup/WorkingWeekDays.jsp" />
+	</definition>
 
 </tiles-definitions>

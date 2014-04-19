@@ -41,18 +41,27 @@
 
 	<h4>Scrum Update</h4>
 	<ul>
-		<li><a href="TodayScrumUpdate">My Update (<%=sdf.format(date)%>)
+		<li><a href="<%=request.getContextPath()%>/TodayScrumUpdate">My Update (<%=sdf.format(date)%>)
 		</a></li>
-		<li><a href="FinalScrumReport">Final Scrum Report</a></li>
-		<li><a href="TotalScrumUpdate">My Scrum History</a></li>
+		<li><a href="<%=request.getContextPath()%>/FinalScrumReport">Final Scrum Report</a></li>
+		<li><a href="<%=request.getContextPath()%>/TotalScrumUpdate">My Scrum History</a></li>
 	</ul>
 
 	<s:if
 		test="%{session.get('SESSION_USER').getAptbRole().getUserMemt().equals(\"Y\")}">
 		<h4>User Management</h4>
 		<ul>
-			<li><a href="UserList">User List</a></li>
-			<li><a href="UserAdd">Add New User</a></li>
+			<li><a href="<%=request.getContextPath()%>/UserList">User List</a></li>
+			<li><a href="<%=request.getContextPath()%>/UserAdd">Add New User</a></li>
+		</ul>
+
+	</s:if>
+	<s:if
+		test="%{session.get('SESSION_USER').getAptbRole().getUserMemt().equals(\"Y\")}">
+		<h4>Application Setup</h4>
+		<ul>
+			<li><a href="<%=request.getContextPath()%>/AppSetup/WeekDays">Working Week</a></li>
+			<li><a href="#">Holidays</a></li>
 		</ul>
 
 	</s:if>

@@ -51,10 +51,10 @@
 
 		<display:column title="Actions">
 			<a
-				href="EditUser?aptbUserId=<s:property value='#attr.aptbUsersId.aptbUserId'/>">view/edit</a>
+				href="<%=request.getContextPath()%>/EditUser?aptbUserId=<s:property value='#attr.aptbUsersId.aptbUserId'/>">view/edit</a>
 				|		
 		    <a
-				href="DeleteUser?aptbUserId=<s:property value='#attr.aptbUsersId.aptbUserId'/>"
+				href="<%=request.getContextPath()%>/DeleteUser?aptbUserId=<s:property value='#attr.aptbUsersId.aptbUserId'/>"
 				onclick="return confirm('Are you sure you want to delete?');">delete</a>
 		</display:column>
 

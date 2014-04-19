@@ -25,23 +25,25 @@
 			</interceptor-stack>
 		</interceptors>
 
+		<action name="ServerTime">
+			<result name="success">/pages/tiles/global/ServerTime.jsp
+			</result>
+		</action>
+
 		<action name="AppLanding" class="app.actions.session.off.BeforeSession"
 			method="appLanding">
 			<result name="error">App.Landing</result>
 			<result type="tiles" name="success">App.Landing</result>
 		</action>
 
-		<action name="ServerTime">
-			<result name="success">/pages/tiles/global/ServerTime.jsp
-			</result>
-		</action>
+
 
 		<action name="Login" class="app.actions.session.off.BeforeSession"
 			method="login">
 			<result type="tiles" name="success">App.Login</result>
 		</action>
 
-		<action name="ProcessLogin" class="app.actions.session.off.BeforeSession"
+		<action name="ProcessLogin" class="app.actions.session.off.BeforeSessionAction"
 			method="processLogin">
 			<result name="success" type="redirectAction">
 				<param name="actionName">UserHome</param>
@@ -217,7 +219,7 @@
 			<result type="tiles" name="AppLogin">App.Login</result>
 		</action>
 
-
 	</package>
 
+	<include file="struts-appSetup.xml"></include>
 </struts> 
