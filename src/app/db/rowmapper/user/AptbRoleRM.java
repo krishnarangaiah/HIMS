@@ -8,6 +8,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 
+import app.core.services.AppBeanFactory;
 import app.db.model.user.AptbRole;
 import framework.core.setup.app.dataaccess.vocabilary.DataAccessVocabilary;
 
@@ -21,11 +22,11 @@ public class AptbRoleRM implements RowMapper<Object> {
 
 	private class RmSetter implements ResultSetExtractor<Object>, DataAccessVocabilary {
 
-		BeanFactory factory = (BeanFactory) (new ClassPathXmlApplicationContext(
-				new String[] { "classpath:" + APPLICATION_CONTEX_XML }));
+//		BeanFactory factory = (BeanFactory) (new ClassPathXmlApplicationContext(
+//				new String[] { "classpath:" + APPLICATION_CONTEX_XML }));
 
 		public Object extractData(ResultSet resultSetOBJ) throws SQLException {
-			AptbRole setterOBJ = (AptbRole) factory.getBean("aptbRole");
+			AptbRole setterOBJ = new AptbRole();//(AptbRole) AppBeanFactory.factory().getBean("aptbRole");
 
 			setterOBJ.setAptbRoleId(resultSetOBJ.getString("APTB_ROLE_ID"));
 			setterOBJ.setRole(resultSetOBJ.getString("ROLE"));

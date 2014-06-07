@@ -4,9 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import app.core.services.AppBeanFactory;
 import app.db.dao.user.ApprRoleList;
 import app.db.dao.user.ApprUserAdd;
 import app.db.dao.user.ApprUserDelete;
@@ -26,17 +25,17 @@ public class ManagerActions extends ActionExtension implements DataAccessVocabil
 	private static final Logger LOGGER = Logger.getLogger(ManagerActions.class);
 
 	// Data access layer
-	private static BeanFactory factory = (BeanFactory) (new ClassPathXmlApplicationContext(
-			new String[] { "classpath:" + APPLICATION_CONTEX_XML }));
+	// private static BeanFactory factory = (BeanFactory) (new
+	// ClassPathXmlApplicationContext(
+	// new String[] { "classpath:" + APPLICATION_CONTEX_XML }));
 
 	// DAO beans
-	private AptbUserList aptbUserList = (AptbUserList) factory.getBean("aptbUserList");
-	private ApprRoleList apprRoleList = (ApprRoleList) factory.getBean("apprRoleList");
-	private ApprUserAdd apprUserAdd = (ApprUserAdd) factory.getBean("apprUserAdd");
-	private ApprUserDelete apprUserDelete = (ApprUserDelete) factory.getBean("apprUserDelete");
-	private ApprUserFindById apprUserFindById = (ApprUserFindById) factory
-			.getBean("apprUserFindById");
-	private ApprUserUpdate apprUserUpdate = (ApprUserUpdate) factory.getBean("apprUserUpdate");
+	private AptbUserList aptbUserList = (AptbUserList) AppBeanFactory.factory().getBean("aptbUserList");
+	private ApprRoleList apprRoleList = (ApprRoleList) AppBeanFactory.factory().getBean("apprRoleList");
+	private ApprUserAdd apprUserAdd = (ApprUserAdd) AppBeanFactory.factory().getBean("apprUserAdd");
+	private ApprUserDelete apprUserDelete = (ApprUserDelete) AppBeanFactory.factory().getBean("apprUserDelete");
+	private ApprUserFindById apprUserFindById = (ApprUserFindById) AppBeanFactory.factory().getBean("apprUserFindById");
+	private ApprUserUpdate apprUserUpdate = (ApprUserUpdate) AppBeanFactory.factory().getBean("apprUserUpdate");
 
 	/***********************************************************************************************************************/
 	private List<AptbUser> aptbUsers = new ArrayList<AptbUser>();
@@ -87,8 +86,7 @@ public class ManagerActions extends ActionExtension implements DataAccessVocabil
 	}
 
 	/***********************************************************************************************************************/
-	private String aptbUserId, userName, userPassword, fullName, mobileNo, emailId, createdBy,
-			microMngmt, feedbackReq, aptbRoleId;
+	private String aptbUserId, userName, userPassword, fullName, mobileNo, emailId, createdBy, microMngmt, feedbackReq, aptbRoleId;
 
 	/**
 	 * Method to process Add user
@@ -97,8 +95,7 @@ public class ManagerActions extends ActionExtension implements DataAccessVocabil
 	 */
 	public String processAddUser() {
 
-		setResultMap(apprUserAdd.addUser(userName, userPassword, fullName, mobileNo, emailId,
-				createdBy, microMngmt, feedbackReq, aptbRoleId));
+		setResultMap(apprUserAdd.addUser(userName, userPassword, fullName, mobileNo, emailId, createdBy, microMngmt, feedbackReq, aptbRoleId));
 		setActionMessage((String) getResultMap().get("pOUT_ACTION_MSG"));
 		setErrorMessage((String) getResultMap().get("pOUT_ERROR_MSG"));
 
@@ -193,8 +190,7 @@ public class ManagerActions extends ActionExtension implements DataAccessVocabil
 	 */
 	public String deleteUser() {
 
-		setResultMap(apprUserDelete.deleteUser(aptbUserId,
-				((AptbUser) getSession().get("SESSION_USER")).getAptbUserId()));
+		setResultMap(apprUserDelete.deleteUser(aptbUserId, ((AptbUser) getSession().get("SESSION_USER")).getAptbUserId()));
 		setActionMessage((String) getResultMap().get("pOUT_ACTION_MSG"));
 		setErrorMessage((String) getResultMap().get("pOUT_ERROR_MSG"));
 
@@ -243,8 +239,8 @@ public class ManagerActions extends ActionExtension implements DataAccessVocabil
 
 	public String processEditUser() {
 
-		setResultMap(apprUserUpdate.editUser(aptbUserId, userName, userPassword, fullName,
-				mobileNo, emailId, aptbRoleId, actSts, microMngmt, feedbackReq, updatedBy));
+		setResultMap(apprUserUpdate.editUser(aptbUserId, userName, userPassword, fullName, mobileNo, emailId, aptbRoleId, actSts, microMngmt, feedbackReq,
+				updatedBy));
 		setActionMessage((String) getResultMap().get("pOUT_ACTION_MSG"));
 		setErrorMessage((String) getResultMap().get("pOUT_ERROR_MSG"));
 

@@ -3,11 +3,10 @@ package app.db.rowmapper.scrum;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 
+import app.core.services.AppBeanFactory;
 import app.db.model.scrum.SutbCategory;
 import app.db.model.scrum.SutbReportDetail;
 import app.db.model.scrum.SutbScrumUpdate;
@@ -25,17 +24,17 @@ public class SutbScrumUpdateRM implements RowMapper<Object> {
 
 	private class RmSetter implements ResultSetExtractor<Object>, DataAccessVocabilary {
 
-		BeanFactory factory = (BeanFactory) (new ClassPathXmlApplicationContext(
-				new String[] { "classpath:" + APPLICATION_CONTEX_XML }));
+//		BeanFactory factory = (BeanFactory) (new ClassPathXmlApplicationContext(
+//				new String[] { "classpath:" + APPLICATION_CONTEX_XML }));
 
 		public Object extractData(ResultSet resultSetOBJ) throws SQLException {
-			SutbScrumUpdate setterOBJ = (SutbScrumUpdate) factory.getBean("sutbScrumUpdate");
+			SutbScrumUpdate setterOBJ = new SutbScrumUpdate();//(SutbScrumUpdate) AppBeanFactory.factory().getBean("sutbScrumUpdate");
 
-			SutbReportDetail sutbReportDetail = (SutbReportDetail) factory
+			SutbReportDetail sutbReportDetail = (SutbReportDetail) AppBeanFactory.factory()
 					.getBean("sutbReportDetail");
-			SutbCategory sutbCategory = (SutbCategory) factory.getBean("sutbCategory");
-			SutbSubCategory sutbSubCategory = (SutbSubCategory) factory.getBean("sutbSubCategory");
-			AptbUser aptbUser = (AptbUser) factory.getBean("aptbUser");
+			SutbCategory sutbCategory = (SutbCategory) AppBeanFactory.factory().getBean("sutbCategory");
+			SutbSubCategory sutbSubCategory = (SutbSubCategory) AppBeanFactory.factory().getBean("sutbSubCategory");
+			AptbUser aptbUser = (AptbUser) AppBeanFactory.factory().getBean("aptbUser");
 
 			setterOBJ.setSutbScrumUpdateId(resultSetOBJ.getString("SUTB_SCRUM_UPDATE_ID"));
 			setterOBJ.setMemberId(resultSetOBJ.getString("MEMBER_ID"));

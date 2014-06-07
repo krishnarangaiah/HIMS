@@ -12,17 +12,18 @@ import framework.core.setup.app.dataaccess.vocabilary.DataAccessVocabilary
 import app.db.dao.user.Login
 import java.util.ArrayList
 import framework.core.setup.app.action.vocabilary.ActionVocabilary
+import app.core.services.AppBeanFactory
 
 class BeforeSessionAction extends ActionExtension with DataAccessVocabilary {
 
   private val LOGGER = Logger.getLogger(classOf[BeforeSessionAction]);
 
-  private var factory = (new ClassPathXmlApplicationContext(new String("classpath:" + DataAccessVocabilary.APPLICATION_CONTEX_XML))).asInstanceOf[BeanFactory]
+  // private var factory = (new ClassPathXmlApplicationContext(new String("classpath:" + DataAccessVocabilary.APPLICATION_CONTEX_XML))).asInstanceOf[BeanFactory]
 
   override def execute() = Action.SUCCESS
 
   // Process Login User
-  var login = factory.getBean("login").asInstanceOf[Login]
+  var login = AppBeanFactory.factory.getBean("login").asInstanceOf[Login]
 
   @BeanProperty var userName, userPassword: String = _
   @BeanProperty var aptbUsers: List[Object] = List()

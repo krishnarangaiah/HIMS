@@ -4,9 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import app.core.services.AppBeanFactory;
 import app.db.dao.master.TkprCategoryList;
 import app.db.dao.master.TkprEnvironmentList;
 import app.db.dao.scrum.SuprCategoryFindByReportId;
@@ -35,30 +34,30 @@ public class UserActions extends ActionExtension implements DataAccessVocabilary
 	private static final long serialVersionUID = 1L;
 	private static final Logger LOGGER = Logger.getLogger(UserActions.class);
 
-	private static BeanFactory factory = (BeanFactory) (new ClassPathXmlApplicationContext(
-			new String[] { "classpath:" + APPLICATION_CONTEX_XML }));
+//	private static BeanFactory factory = (BeanFactory) (new ClassPathXmlApplicationContext(
+//			new String[] { "classpath:" + APPLICATION_CONTEX_XML }));
 
-	private TkprEnvironmentList tkprEnvironmentList = (TkprEnvironmentList) factory
+	private TkprEnvironmentList tkprEnvironmentList = (TkprEnvironmentList) AppBeanFactory.factory()
 			.getBean("tkprEnvironmentList");
-	private AptbUserList aptbUserList = (AptbUserList) factory.getBean("aptbUserList");
-	private TkprCategoryList tkprCategoryList = (TkprCategoryList) factory
+	private AptbUserList aptbUserList = (AptbUserList) AppBeanFactory.factory().getBean("aptbUserList");
+	private TkprCategoryList tkprCategoryList = (TkprCategoryList) AppBeanFactory.factory()
 			.getBean("tkprCategoryList");
-	private SuprReportDetailList suprReportDetailList = (SuprReportDetailList) factory
+	private SuprReportDetailList suprReportDetailList = (SuprReportDetailList) AppBeanFactory.factory()
 			.getBean("suprReportDetailList");
-	private SuprCategoryFindByReportId suprCategoryList = (SuprCategoryFindByReportId) factory
+	private SuprCategoryFindByReportId suprCategoryList = (SuprCategoryFindByReportId) AppBeanFactory.factory()
 			.getBean("suprCategoryFindByReportId");
-	private SuprSubCategoryFindByCategoryId suprSubCategoryList = (SuprSubCategoryFindByCategoryId) factory
+	private SuprSubCategoryFindByCategoryId suprSubCategoryList = (SuprSubCategoryFindByCategoryId) AppBeanFactory.factory()
 			.getBean("suprSubCategoryFindByCategoryId");
-	private SuprScrumUpdateAdd suprScrumUpdateAdd = (SuprScrumUpdateAdd) factory
+	private SuprScrumUpdateAdd suprScrumUpdateAdd = (SuprScrumUpdateAdd) AppBeanFactory.factory()
 			.getBean("suprScrumUpdateAdd");
-	private SuprScrumUpdateByMemberId suprScrumUpdateByMemberId = (SuprScrumUpdateByMemberId) factory
+	private SuprScrumUpdateByMemberId suprScrumUpdateByMemberId = (SuprScrumUpdateByMemberId) AppBeanFactory.factory()
 			.getBean("suprScrumUpdateByMemberId");
-	private SuprTotalScrumUpdate suprTotalScrumUpdate = (SuprTotalScrumUpdate) factory
+	private SuprTotalScrumUpdate suprTotalScrumUpdate = (SuprTotalScrumUpdate) AppBeanFactory.factory()
 			.getBean("suprTotalScrumUpdate");
-	private SuprFinalReportByReportId suprFinalReportByReportId = (SuprFinalReportByReportId) factory
+	private SuprFinalReportByReportId suprFinalReportByReportId = (SuprFinalReportByReportId) AppBeanFactory.factory()
 			.getBean("suprFinalReportByReportId");
 
-	private SuprScrumUpdateDelete suprScrumUpdateDelete = (SuprScrumUpdateDelete) factory
+	private SuprScrumUpdateDelete suprScrumUpdateDelete = (SuprScrumUpdateDelete) AppBeanFactory.factory()
 			.getBean("suprScrumUpdateDelete");
 
 	public String userHome() {

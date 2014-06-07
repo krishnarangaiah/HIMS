@@ -3,11 +3,10 @@ package app.db.rowmapper.master.scrum;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 
+import app.core.services.AppBeanFactory;
 import app.db.model.scrum.SutbReportDetail;
 import framework.core.setup.app.dataaccess.vocabilary.DataAccessVocabilary;
 
@@ -21,10 +20,10 @@ public class SutbReportDetailRM implements RowMapper<Object> {
 
 	private class RmSetter implements ResultSetExtractor<Object>, DataAccessVocabilary {
 
-		BeanFactory factory = (BeanFactory) (new ClassPathXmlApplicationContext(new String[] { "classpath:" + APPLICATION_CONTEX_XML }));
+		// BeanFactory factory = (BeanFactory) (new ClassPathXmlApplicationContext(new String[] { "classpath:" + APPLICATION_CONTEX_XML }));
 
 		public Object extractData(ResultSet resultSetOBJ) throws SQLException {
-			SutbReportDetail setterOBJ = (SutbReportDetail) factory.getBean("sutbReportDetail");
+			SutbReportDetail setterOBJ = new SutbReportDetail();//(SutbReportDetail) AppBeanFactory.factory().getBean("sutbReportDetail");
 
 			setterOBJ.setSutbReportDetailId(resultSetOBJ.getString("SUTB_REPORT_DETAIL_ID"));
 			setterOBJ.setReportName(resultSetOBJ.getString("REPORT_NAME"));

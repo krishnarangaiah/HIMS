@@ -8,6 +8,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 
+import app.core.services.AppBeanFactory;
 import app.db.model.user.AptbRole;
 import app.db.model.user.AptbUser;
 import framework.core.setup.app.dataaccess.vocabilary.DataAccessVocabilary;
@@ -22,12 +23,11 @@ public class AptbUserRM implements RowMapper<Object> {
 
 	private class RmSetter implements ResultSetExtractor<Object>, DataAccessVocabilary {
 
-		BeanFactory factory = (BeanFactory) (new ClassPathXmlApplicationContext(
-				new String[] { "classpath:" + APPLICATION_CONTEX_XML }));
+	//	BeanFactory factory = (BeanFactory) (new ClassPathXmlApplicationContext(new String[] { "classpath:" + APPLICATION_CONTEX }));
 
 		public Object extractData(ResultSet resultSetOBJ) throws SQLException {
-			AptbUser setterOBJ = (AptbUser) factory.getBean("aptbUser");
-			AptbRole aptbRole = (AptbRole) factory.getBean("aptbRole");
+			AptbUser setterOBJ = new AptbUser();//(AptbUser) factory.getBean("aptbUser");
+			AptbRole aptbRole = new AptbRole();//(AptbRole) factory.getBean("aptbRole");
 
 			setterOBJ.setAptbUserId(resultSetOBJ.getString("APTB_USER_ID"));
 			setterOBJ.setUserName(resultSetOBJ.getString("USER_NAME"));

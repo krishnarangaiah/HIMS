@@ -3,9 +3,8 @@ package app.actions.session.off;
 import java.util.List;
 
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import app.core.services.AppBeanFactory;
 import app.db.dao.master.TkprProductList;
 import app.db.dao.user.Login;
 import app.db.model.master.TktbProduct;
@@ -19,10 +18,10 @@ public class BeforeSession extends ActionExtension implements DataAccessVocabila
 	private static final long serialVersionUID = 1L;
 
 	private static final Logger LOGGER = Logger.getLogger(BeforeSession.class);
-	private static BeanFactory factory = (BeanFactory) (new ClassPathXmlApplicationContext(new String[] { "classpath:" + APPLICATION_CONTEX_XML }));
+	// private static BeanFactory factory = (BeanFactory) (new ClassPathXmlApplicationContext(new String[] { "classpath:" + APPLICATION_CONTEX_XML }));
 
-	private Login login = (Login) factory.getBean("login");
-	private TkprProductList tkprProductList = (TkprProductList) factory.getBean("tkprProductList");
+	private Login login = (Login) AppBeanFactory.factory().getBean("login");
+	private TkprProductList tkprProductList = (TkprProductList) AppBeanFactory.factory().getBean("tkprProductList");
 	private List<TktbProduct> tktbProducts;
 
 	static {

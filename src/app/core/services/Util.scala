@@ -7,8 +7,4 @@ object Util {
 
   def getUUID() = { UUID.randomUUID().toString().replace("-", "") }
 
-  def main(args: Array[String]) {
-    print(getUUID())
-  }
-
 }

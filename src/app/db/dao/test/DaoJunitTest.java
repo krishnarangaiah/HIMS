@@ -6,9 +6,8 @@ import java.util.Map;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import app.core.services.AppBeanFactory;
 import app.db.dao.master.SuprWorkingDaysList;
 import app.db.model.master.SutbWorkingDays;
 import framework.core.setup.app.dataaccess.vocabilary.DataAccessVocabilary;
@@ -18,13 +17,13 @@ public class DaoJunitTest implements DataAccessVocabilary {
 	private String actionMessage, errorMessage;
 	private Map<String, Object> resultMap = new HashMap<String, Object>();
 
-	private static BeanFactory factory = (BeanFactory) (new ClassPathXmlApplicationContext(new String[] { "classpath:" + APPLICATION_CONTEX_XML }));
+	// private static BeanFactory factory = (BeanFactory) (new ClassPathXmlApplicationContext(new String[] { "classpath:" + APPLICATION_CONTEX_XML }));
 
 	@Test
 	public void testSuprWorkingDaysList() {
 
 		List<SutbWorkingDays> sutbWorkingDays = null;
-		SuprWorkingDaysList suprWorkingDaysList = (SuprWorkingDaysList) factory.getBean("suprWorkingDaysList");
+		SuprWorkingDaysList suprWorkingDaysList = (SuprWorkingDaysList) AppBeanFactory.factory().getBean("suprWorkingDaysList");
 		setResultMap(suprWorkingDaysList.getWorkingDaysList());
 		sutbWorkingDays = (List<SutbWorkingDays>) getResultMap().get("pRESULTSET_ROWS");
 
