@@ -1,20 +1,21 @@
 package app.actions.session.off
 
+import java.util.ArrayList
+
 import scala.beans.BeanProperty
+
 import org.apache.log4j.Logger
-import org.springframework.beans.factory.BeanFactory
-import org.springframework.context.support.ClassPathXmlApplicationContext
+
 import com.opensymphony.xwork2.Action
+
+import app.db.dao.user.Login
 import app.db.model.user.AptbUser
 import framework.core.custom.log4j.logger.levels.AppLevel
-import framework.core.setup.app.action.extentions.ActionExtension
-import framework.core.setup.app.dataaccess.vocabilary.DataAccessVocabilary
-import app.db.dao.user.Login
-import java.util.ArrayList
+import framework.core.setup.app.action.extentions.ActionExtention
 import framework.core.setup.app.action.vocabilary.ActionVocabilary
-import app.core.services.AppBeanFactory
+import framework.core.setup.app.dataaccess.vocabilary.DataAccessVocabilary
 
-class BeforeSessionAction extends ActionExtension with DataAccessVocabilary {
+class BeforeSessionAction extends ActionExtention with DataAccessVocabilary {
 
   private val LOGGER = Logger.getLogger(classOf[BeforeSessionAction]);
 
@@ -23,7 +24,7 @@ class BeforeSessionAction extends ActionExtension with DataAccessVocabilary {
   override def execute() = Action.SUCCESS
 
   // Process Login User
-  var login = AppBeanFactory.factory.getBean("login").asInstanceOf[Login]
+  var login = getCtx.getBean("login").asInstanceOf[Login]
 
   @BeanProperty var userName, userPassword: String = _
   @BeanProperty var aptbUsers: List[Object] = List()

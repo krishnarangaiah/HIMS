@@ -1,18 +1,19 @@
 package app.actions.session.on.admin
 
-import org.slf4j.Logger
+import scala.beans.BeanProperty
+
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.BeanFactory
 import org.springframework.context.support.ClassPathXmlApplicationContext
+
 import com.opensymphony.xwork2.Action
-import scala.beans.BeanProperty
-import framework.core.setup.app.action.extentions.ActionExtension
+
+import framework.core.setup.app.action.extentions.ActionExtention
 import framework.core.setup.app.dataaccess.vocabilary.DataAccessVocabilary
 
-class AdminAction extends ActionExtension with DataAccessVocabilary {
+class AdminAction extends ActionExtention with DataAccessVocabilary {
 
   private val LOGGER = LoggerFactory.getLogger(classOf[AdminAction])
-  private var factory = (new ClassPathXmlApplicationContext(new String("classpath:" + DataAccessVocabilary.APPLICATION_CONTEX_XML))).asInstanceOf[BeanFactory]
 
   override def execute() = Action.SUCCESS
 

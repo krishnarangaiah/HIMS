@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import app.core.services.AppBeanFactory;
 import app.db.dao.user.ApprRoleList;
 import app.db.dao.user.ApprUserAdd;
 import app.db.dao.user.ApprUserDelete;
@@ -14,10 +13,10 @@ import app.db.dao.user.ApprUserUpdate;
 import app.db.dao.user.AptbUserList;
 import app.db.model.user.AptbRole;
 import app.db.model.user.AptbUser;
-import framework.core.setup.app.action.extentions.ActionExtension;
+import framework.core.setup.app.action.extentions.ActionExtention;
 import framework.core.setup.app.dataaccess.vocabilary.DataAccessVocabilary;
 
-public class ManagerActions extends ActionExtension implements DataAccessVocabilary {
+public class ManagerActions extends ActionExtention implements DataAccessVocabilary {
 
 	private static final long serialVersionUID = 1L;
 
@@ -30,12 +29,12 @@ public class ManagerActions extends ActionExtension implements DataAccessVocabil
 	// new String[] { "classpath:" + APPLICATION_CONTEX_XML }));
 
 	// DAO beans
-	private AptbUserList aptbUserList = (AptbUserList) AppBeanFactory.factory().getBean("aptbUserList");
-	private ApprRoleList apprRoleList = (ApprRoleList) AppBeanFactory.factory().getBean("apprRoleList");
-	private ApprUserAdd apprUserAdd = (ApprUserAdd) AppBeanFactory.factory().getBean("apprUserAdd");
-	private ApprUserDelete apprUserDelete = (ApprUserDelete) AppBeanFactory.factory().getBean("apprUserDelete");
-	private ApprUserFindById apprUserFindById = (ApprUserFindById) AppBeanFactory.factory().getBean("apprUserFindById");
-	private ApprUserUpdate apprUserUpdate = (ApprUserUpdate) AppBeanFactory.factory().getBean("apprUserUpdate");
+	private AptbUserList aptbUserList = (AptbUserList) getCtx().getBean("aptbUserList");
+	private ApprRoleList apprRoleList = (ApprRoleList) getCtx().getBean("apprRoleList");
+	private ApprUserAdd apprUserAdd = (ApprUserAdd) getCtx().getBean("apprUserAdd");
+	private ApprUserDelete apprUserDelete = (ApprUserDelete) getCtx().getBean("apprUserDelete");
+	private ApprUserFindById apprUserFindById = (ApprUserFindById) getCtx().getBean("apprUserFindById");
+	private ApprUserUpdate apprUserUpdate = (ApprUserUpdate) getCtx().getBean("apprUserUpdate");
 
 	/***********************************************************************************************************************/
 	private List<AptbUser> aptbUsers = new ArrayList<AptbUser>();

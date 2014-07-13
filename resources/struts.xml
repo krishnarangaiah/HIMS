@@ -43,7 +43,7 @@
 			<result type="tiles" name="success">App.Login</result>
 		</action>
 
-		<action name="ProcessLogin" class="app.actions.session.off.BeforeSessionAction"
+		<action name="ProcessLogin" class="app.actions.session.off.BeforeSession"
 			method="processLogin">
 			<result name="success" type="redirectAction">
 				<param name="actionName">UserHome</param>

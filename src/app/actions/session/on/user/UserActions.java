@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import app.core.services.AppBeanFactory;
 import app.db.dao.master.TkprCategoryList;
 import app.db.dao.master.TkprEnvironmentList;
 import app.db.dao.scrum.SuprCategoryFindByReportId;
@@ -26,39 +25,30 @@ import app.db.model.scrum.SutbSubCategory;
 import app.db.model.user.AptbUser;
 import app.utils.General;
 import framework.core.custom.log4j.logger.levels.AppLevel;
-import framework.core.setup.app.action.extentions.ActionExtension;
+import framework.core.setup.app.action.extentions.ActionExtention;
 import framework.core.setup.app.dataaccess.vocabilary.DataAccessVocabilary;
 
-public class UserActions extends ActionExtension implements DataAccessVocabilary {
+public class UserActions extends ActionExtention implements DataAccessVocabilary {
 
 	private static final long serialVersionUID = 1L;
 	private static final Logger LOGGER = Logger.getLogger(UserActions.class);
 
-//	private static BeanFactory factory = (BeanFactory) (new ClassPathXmlApplicationContext(
-//			new String[] { "classpath:" + APPLICATION_CONTEX_XML }));
+	// private static BeanFactory factory = (BeanFactory) (new
+	// ClassPathXmlApplicationContext(
+	// new String[] { "classpath:" + APPLICATION_CONTEX_XML }));
 
-	private TkprEnvironmentList tkprEnvironmentList = (TkprEnvironmentList) AppBeanFactory.factory()
-			.getBean("tkprEnvironmentList");
-	private AptbUserList aptbUserList = (AptbUserList) AppBeanFactory.factory().getBean("aptbUserList");
-	private TkprCategoryList tkprCategoryList = (TkprCategoryList) AppBeanFactory.factory()
-			.getBean("tkprCategoryList");
-	private SuprReportDetailList suprReportDetailList = (SuprReportDetailList) AppBeanFactory.factory()
-			.getBean("suprReportDetailList");
-	private SuprCategoryFindByReportId suprCategoryList = (SuprCategoryFindByReportId) AppBeanFactory.factory()
-			.getBean("suprCategoryFindByReportId");
-	private SuprSubCategoryFindByCategoryId suprSubCategoryList = (SuprSubCategoryFindByCategoryId) AppBeanFactory.factory()
-			.getBean("suprSubCategoryFindByCategoryId");
-	private SuprScrumUpdateAdd suprScrumUpdateAdd = (SuprScrumUpdateAdd) AppBeanFactory.factory()
-			.getBean("suprScrumUpdateAdd");
-	private SuprScrumUpdateByMemberId suprScrumUpdateByMemberId = (SuprScrumUpdateByMemberId) AppBeanFactory.factory()
-			.getBean("suprScrumUpdateByMemberId");
-	private SuprTotalScrumUpdate suprTotalScrumUpdate = (SuprTotalScrumUpdate) AppBeanFactory.factory()
-			.getBean("suprTotalScrumUpdate");
-	private SuprFinalReportByReportId suprFinalReportByReportId = (SuprFinalReportByReportId) AppBeanFactory.factory()
-			.getBean("suprFinalReportByReportId");
+	private TkprEnvironmentList tkprEnvironmentList = (TkprEnvironmentList) getCtx().getBean("tkprEnvironmentList");
+	private AptbUserList aptbUserList = (AptbUserList) getCtx().getBean("aptbUserList");
+	private TkprCategoryList tkprCategoryList = (TkprCategoryList) getCtx().getBean("tkprCategoryList");
+	private SuprReportDetailList suprReportDetailList = (SuprReportDetailList) getCtx().getBean("suprReportDetailList");
+	private SuprCategoryFindByReportId suprCategoryList = (SuprCategoryFindByReportId) getCtx().getBean("suprCategoryFindByReportId");
+	private SuprSubCategoryFindByCategoryId suprSubCategoryList = (SuprSubCategoryFindByCategoryId) getCtx().getBean("suprSubCategoryFindByCategoryId");
+	private SuprScrumUpdateAdd suprScrumUpdateAdd = (SuprScrumUpdateAdd) getCtx().getBean("suprScrumUpdateAdd");
+	private SuprScrumUpdateByMemberId suprScrumUpdateByMemberId = (SuprScrumUpdateByMemberId) getCtx().getBean("suprScrumUpdateByMemberId");
+	private SuprTotalScrumUpdate suprTotalScrumUpdate = (SuprTotalScrumUpdate) getCtx().getBean("suprTotalScrumUpdate");
+	private SuprFinalReportByReportId suprFinalReportByReportId = (SuprFinalReportByReportId) getCtx().getBean("suprFinalReportByReportId");
 
-	private SuprScrumUpdateDelete suprScrumUpdateDelete = (SuprScrumUpdateDelete) AppBeanFactory.factory()
-			.getBean("suprScrumUpdateDelete");
+	private SuprScrumUpdateDelete suprScrumUpdateDelete = (SuprScrumUpdateDelete) getCtx().getBean("suprScrumUpdateDelete");
 
 	public String userHome() {
 
@@ -123,8 +113,7 @@ public class UserActions extends ActionExtension implements DataAccessVocabilary
 
 	/*********************************************************************************************************/
 
-	private String tktbProductId, tktbEnvironmentId, tktbCategoryId, tktbSeverityId, subject, disc,
-			simulationSteps, issueType, aptbUserId, eta;
+	private String tktbProductId, tktbEnvironmentId, tktbCategoryId, tktbSeverityId, subject, disc, simulationSteps, issueType, aptbUserId, eta;
 
 	/**
 	 * Method to process new Ticket
@@ -133,9 +122,8 @@ public class UserActions extends ActionExtension implements DataAccessVocabilary
 	 */
 	public String processNewTicket() {
 
-		LOGGER.log(AppLevel.APP_UM_INFO, tktbProductId + " | " + tktbEnvironmentId + " | "
-				+ tktbCategoryId + " | " + tktbSeverityId + " | " + subject + " | " + disc + " | "
-				+ simulationSteps + " | " + issueType + " | " + aptbUserId + " | " + eta);
+		LOGGER.log(AppLevel.APP_UM_INFO, tktbProductId + " | " + tktbEnvironmentId + " | " + tktbCategoryId + " | " + tktbSeverityId + " | " + subject + " | "
+				+ disc + " | " + simulationSteps + " | " + issueType + " | " + aptbUserId + " | " + eta);
 
 		return SUCCESS;
 	}
@@ -249,12 +237,11 @@ public class UserActions extends ActionExtension implements DataAccessVocabilary
 	public String todayScrumUpdate() {
 
 		setResultMap(suprReportDetailList.getReportList());
-		
+
 		sutbReportDetails = (List<SutbReportDetail>) getResultMap().get("pRESULTSET_ROWS");
 
-		setResultMap(suprScrumUpdateByMemberId.getUpdatesList(((AptbUser) getSession().get(
-				"SESSION_USER")).getAptbUserId()));
-		
+		setResultMap(suprScrumUpdateByMemberId.getUpdatesList(((AptbUser) getSession().get("SESSION_USER")).getAptbUserId()));
+
 		sutbScrumUpdates = (List<SutbScrumUpdate>) getResultMap().get("pRESULTSET_ROWS");
 
 		setActionMessage((String) getResultMap().get("pOUT_ACTION_MSG"));
@@ -283,8 +270,7 @@ public class UserActions extends ActionExtension implements DataAccessVocabilary
 
 	public String totalScrumUpdate() {
 
-		setResultMap(suprTotalScrumUpdate.getUpdatesList(((AptbUser) getSession().get(
-				"SESSION_USER")).getAptbUserId()));
+		setResultMap(suprTotalScrumUpdate.getUpdatesList(((AptbUser) getSession().get("SESSION_USER")).getAptbUserId()));
 		sutbScrumUpdates = (List<SutbScrumUpdate>) getResultMap().get("pRESULTSET_ROWS");
 
 		setActionMessage((String) getResultMap().get("pOUT_ACTION_MSG"));
@@ -360,8 +346,8 @@ public class UserActions extends ActionExtension implements DataAccessVocabilary
 
 	public String processScrumUpdate() {
 
-		setResultMap(suprScrumUpdateAdd.addScrumUpdate(General.getUUID(), sutbReportDetailId,
-				sutbCategoryId, sutbSubCategoryId, memberId, updateTxt, hoursSpent));
+		setResultMap(suprScrumUpdateAdd.addScrumUpdate(General.getUUID(), sutbReportDetailId, sutbCategoryId, sutbSubCategoryId, memberId, updateTxt,
+				hoursSpent));
 
 		setActionMessage((String) getResultMap().get("pOUT_ACTION_MSG"));
 

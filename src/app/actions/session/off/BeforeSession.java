@@ -4,24 +4,25 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import app.core.services.AppBeanFactory;
 import app.db.dao.master.TkprProductList;
 import app.db.dao.user.Login;
 import app.db.model.master.TktbProduct;
 import app.db.model.user.AptbUser;
 import framework.core.custom.log4j.logger.levels.AppLevel;
-import framework.core.setup.app.action.extentions.ActionExtension;
+import framework.core.setup.app.action.extentions.ActionExtention;
 import framework.core.setup.app.dataaccess.vocabilary.DataAccessVocabilary;
 
-public class BeforeSession extends ActionExtension implements DataAccessVocabilary {
+public class BeforeSession extends ActionExtention implements DataAccessVocabilary {
 
 	private static final long serialVersionUID = 1L;
 
 	private static final Logger LOGGER = Logger.getLogger(BeforeSession.class);
-	// private static BeanFactory factory = (BeanFactory) (new ClassPathXmlApplicationContext(new String[] { "classpath:" + APPLICATION_CONTEX_XML }));
+	// private static BeanFactory factory = (BeanFactory) (new
+	// ClassPathXmlApplicationContext(new String[] { "classpath:" +
+	// APPLICATION_CONTEX_XML }));
 
-	private Login login = (Login) AppBeanFactory.factory().getBean("login");
-	private TkprProductList tkprProductList = (TkprProductList) AppBeanFactory.factory().getBean("tkprProductList");
+	private Login login = (Login) getCtx().getBean("login");
+	private TkprProductList tkprProductList = (TkprProductList) getCtx().getBean("tkprProductList");
 	private List<TktbProduct> tktbProducts;
 
 	static {
