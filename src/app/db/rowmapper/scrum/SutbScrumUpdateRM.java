@@ -6,12 +6,12 @@ import java.sql.SQLException;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 
-import app.core.services.AppBeanFactory;
 import app.db.model.scrum.SutbCategory;
 import app.db.model.scrum.SutbReportDetail;
 import app.db.model.scrum.SutbScrumUpdate;
 import app.db.model.scrum.SutbSubCategory;
 import app.db.model.user.AptbUser;
+import framework.core.setup.app.action.extentions.ActionExtention;
 import framework.core.setup.app.dataaccess.vocabilary.DataAccessVocabilary;
 
 public class SutbScrumUpdateRM implements RowMapper<Object> {
@@ -22,19 +22,20 @@ public class SutbScrumUpdateRM implements RowMapper<Object> {
 		return rowMapperOBJ.extractData(resultSetOBJ);
 	}
 
-	private class RmSetter implements ResultSetExtractor<Object>, DataAccessVocabilary {
+	private class RmSetter extends ActionExtention implements ResultSetExtractor<Object>, DataAccessVocabilary {
 
-//		BeanFactory factory = (BeanFactory) (new ClassPathXmlApplicationContext(
-//				new String[] { "classpath:" + APPLICATION_CONTEX_XML }));
+		// BeanFactory factory = (BeanFactory) (new
+		// ClassPathXmlApplicationContext(
+		// new String[] { "classpath:" + APPLICATION_CONTEX_XML }));
 
 		public Object extractData(ResultSet resultSetOBJ) throws SQLException {
-			SutbScrumUpdate setterOBJ = new SutbScrumUpdate();//(SutbScrumUpdate) AppBeanFactory.factory().getBean("sutbScrumUpdate");
+			SutbScrumUpdate setterOBJ = new SutbScrumUpdate();// (SutbScrumUpdate)
+																// AppBeanFactory.factory().getBean("sutbScrumUpdate");
 
-			SutbReportDetail sutbReportDetail = (SutbReportDetail) AppBeanFactory.factory()
-					.getBean("sutbReportDetail");
-			SutbCategory sutbCategory = (SutbCategory) AppBeanFactory.factory().getBean("sutbCategory");
-			SutbSubCategory sutbSubCategory = (SutbSubCategory) AppBeanFactory.factory().getBean("sutbSubCategory");
-			AptbUser aptbUser = (AptbUser) AppBeanFactory.factory().getBean("aptbUser");
+			SutbReportDetail sutbReportDetail = (SutbReportDetail) getCtx().getBean("sutbReportDetail");
+			SutbCategory sutbCategory = (SutbCategory) getCtx().getBean("sutbCategory");
+			SutbSubCategory sutbSubCategory = (SutbSubCategory) getCtx().getBean("sutbSubCategory");
+			AptbUser aptbUser = (AptbUser) getCtx().getBean("aptbUser");
 
 			setterOBJ.setSutbScrumUpdateId(resultSetOBJ.getString("SUTB_SCRUM_UPDATE_ID"));
 			setterOBJ.setMemberId(resultSetOBJ.getString("MEMBER_ID"));
