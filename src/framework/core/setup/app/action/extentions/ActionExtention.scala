@@ -17,9 +17,4 @@ class ActionExtention extends ActionSupport with ActionVocabilary with SessionAw
   @BeanProperty var actionMessage, errorMessage: String = _;
   @BeanProperty var resultMap: Map[String, Object] = new HashMap[String, Object]();
 
-  //  @Override
-  //  def setSession(session: Map[String, Object]) = {
-  //    this.session = session;
-  //  }
-
 }

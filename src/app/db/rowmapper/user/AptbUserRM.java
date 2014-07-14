@@ -3,12 +3,9 @@ package app.db.rowmapper.user;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 
-import app.core.services.AppBeanFactory;
 import app.db.model.user.AptbRole;
 import app.db.model.user.AptbUser;
 import framework.core.setup.app.dataaccess.vocabilary.DataAccessVocabilary;

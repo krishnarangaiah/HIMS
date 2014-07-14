@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 
-import app.core.services.AppBeanFactory;
 import app.db.model.scrum.SutbSubCategory;
 import framework.core.setup.app.dataaccess.vocabilary.DataAccessVocabilary;
 

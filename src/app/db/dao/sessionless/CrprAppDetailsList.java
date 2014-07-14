@@ -11,7 +11,7 @@ import org.springframework.jdbc.object.StoredProcedure;
 
 import app.db.rowmapper.sessionless.CrtbAppDetailsRM;
 
-public class CrprAppDetailsList extends StoredProcedure {
+public class CrprAppDetailsList extends StoredProcedure  {
 
 	public CrprAppDetailsList(DataSource dataSource) {
 
