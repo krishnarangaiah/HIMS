@@ -11,8 +11,8 @@ import java.util.Map
 import scala.beans.BeanProperty
 
 class ActionExtention extends ActionSupport with ActionVocabilary with SessionAware {
-  var servletContext = ServletActionContext.getServletContext();
-  @BeanProperty var ctx = WebApplicationContextUtils.getWebApplicationContext(servletContext);
+
+  @BeanProperty var ctx = WebApplicationContextUtils.getWebApplicationContext(ServletActionContext.getServletContext());
   @BeanProperty var session = ActionContext.getContext().getSession();
   @BeanProperty var actionMessage, errorMessage: String = _;
   @BeanProperty var resultMap: Map[String, Object] = new HashMap[String, Object]();

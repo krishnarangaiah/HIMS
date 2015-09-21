@@ -14,13 +14,11 @@ import com.opensymphony.xwork2.interceptor.Interceptor;
 import framework.core.custom.log4j.logger.levels.AppLevel;
 import framework.core.setup.app.action.vocabilary.ActionVocabilary;
 
-public class CheckSession implements Interceptor, ActionVocabilary,
-		SessionAware {
+public class CheckSession implements Interceptor, ActionVocabilary, SessionAware {
 
 	private static final long serialVersionUID = 1L;
 	private static final Logger LOGGER = Logger.getLogger(CheckSession.class);
-	private Map<String, Object> session = ActionContext.getContext()
-			.getSession();
+	private Map<String, Object> session = ActionContext.getContext().getSession();
 
 	@Override
 	public void destroy() {
@@ -38,28 +36,18 @@ public class CheckSession implements Interceptor, ActionVocabilary,
 		String returnValue;
 
 		long actionStartTime = System.currentTimeMillis();
-		LOGGER.log(AppLevel.APP_INFO, "Session Object is: "
-				+ invocation.getInvocationContext().getSession());
-		invocation.getInvocationContext().getSession()
-				.put("AppCache", AppCache.getInstance());
+		LOGGER.log(AppLevel.APP_INFO, "Session Object is: " + invocation.getInvocationContext().getSession());
+		invocation.getInvocationContext().getSession().put("AppCache", AppCache.getInstance());
 
-		LOGGER.log(
-				AppLevel.APP_DEBUG,
-				"User LoggedIn : "
-						+ invocation.getInvocationContext().getSession()
-								.get("SESSION_USER"));
+		LOGGER.log(AppLevel.APP_DEBUG, "User LoggedIn : " + invocation.getInvocationContext().getSession().get("SESSION_USER"));
 
-		if (invocation.getInvocationContext().getSession()
-				.containsKey("SESSION_USER")) {
+		if (invocation.getInvocationContext().getSession().containsKey("SESSION_USER")) {
 			returnValue = invocation.invoke();
 		} else {
 			returnValue = APP_LOGIN;
 		}
 
-		LOGGER.log(AppLevel.APP_DEBUG,
-				"Action performed in "
-						+ (System.currentTimeMillis() - actionStartTime)
-						+ " Milliseconds");
+		LOGGER.log(AppLevel.APP_DEBUG, "Action performed in " + (System.currentTimeMillis() - actionStartTime) + " Milliseconds");
 
 		return returnValue;
 	}
